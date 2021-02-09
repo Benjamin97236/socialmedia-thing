@@ -1,4 +1,5 @@
-var glow = 5;
-if(glow.toString == "5") {
-    console.log("Hello there family!");
-}
+const profileButton = document.querySelector("#user-img");
+profileButton.addEventListener("click", () => {
+    window.open("userpage.php", "_self");
+});
+

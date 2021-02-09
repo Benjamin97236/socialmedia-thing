@@ -1,6 +1,13 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+#headertext {
+    font-size: 30px;
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(77, 77, 77);
 }
 
 input[type=text] {
@@ -24,7 +31,7 @@ input[type=text] {
 .navbar_container {
     width: 100%;
     height: 60px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(163, 163, 163);;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -51,6 +58,16 @@ input[type=text] {
     justify-content: flex-end;
 }
 
+#user-img {
+    height: 45px;
+    margin: 10px;
+}
+
+#logo-img {
+    height: 50px;
+    margin: 10px;
+}
+
 /* bodycontent - styling */
 
 .bodycontent_container {
@@ -61,10 +78,11 @@ input[type=text] {
 }
 
 .bodycontent_holder {
-    margin-top: 20px;
+    margin-top: 30px;
     width: 70%;
     height: 100vh;
-    border: 1px solid black;
+    border-right: 1px solid rgb(163, 163, 163);
+    border-left: 1px solid rgb(163, 163, 163);
     display: flex;
 }
 
@@ -74,7 +92,95 @@ input[type=text] {
     border-right: 1px solid rgb(163, 163, 163);
 }
 
+.profile_settings_holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+
+.username_holder {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto;
+}
+
+#change-username-input {
+    padding: 0;
+    width: 190px;
+}
+
+#file-input {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#big-user-img {
+    width: 85%;
+}
+
 .right_section {
-    flex: 3;
+    flex: 3.5;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.buttons_holder {
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.buttons_holder button {
+    padding: 4px;
+    background: none;
+    border: none;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.save_buttons_holder {
+    width: auto;
+    height: auto;
+    margin-top: 10px;
+}
+
+.save_buttons_holder button {
+    padding: 3px;
+    margin: 10px;
+}
+
+.content_manager_post {
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: rgb(238, 238, 238);
+    width: 80%;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+#header-input {
+    background: none;
+    border: none;
+    font-size: 18px;
+    outline: none;
+}
+
+#content-textarea {
+    background: none;
+    border: none;
+    font-size: 18px;
+    outline: none;
+    width: 100%;
+    height: 150px;
+    resize: none;
 }
