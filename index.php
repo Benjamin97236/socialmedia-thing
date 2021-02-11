@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Blog</title>
+    <title>GET IT</title>
 </head>
 <body>
 
@@ -21,27 +21,27 @@
             <div class="login_signup_container">
                 <div class="login_container">
                     <form action="includes/login.php" method="post">
-                        <h1>Logga in:</h1>
+                        <h1>Log In:</h1>
                         <br>
-                        <p>Användarnamn:</p>
+                        <p>Username:</p>
                         <input type="text" name="username">
 
-                        <p>Lösenord:</p>
+                        <p>Password:</p>
                         <input type="password" name="password">
-                        <input type="submit" name="submit" value="logga in">
+                        <input type="submit" name="submit" value="Log in">
                     </form>
                 </div>
 
                 <div class="login_container">
                     <form action="includes/signup.php" method="post">
-                        <h1>Skapa konto:</h1>
+                        <h1>Create Account:</h1>
                         <br>
-                        <p>Användarnamn:</p>
+                        <p>Username:</p>
                         <input type="text" name="username">
 
-                        <p>Lösenord:</p>
+                        <p>Password:</p>
                         <input type="password" name="password">
-                        <input type="submit" name="submit" value="logga in">
+                        <input type="submit" name="submit" value="Log in">
                     </form>
                 </div>
             </div>

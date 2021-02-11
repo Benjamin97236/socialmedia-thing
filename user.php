@@ -57,7 +57,7 @@
                         <div class="profile_img_holder">
                             <?php
                                 if(isset($me->user_image)) {
-                                    echo '<img src="media/'.$me->user_image.'" alt="profile-pic" id="big-user-img">';
+                                    echo '<img src="profile-pictures/'.$me->user_image.'" alt="profile-pic" id="big-user-img">';
                                 } else {
                                     echo '<img src="media/user.png" alt="user" id="big-user-img">';
                                 }       
@@ -65,41 +65,66 @@
                             <br>
                             <br>
                         </div>
+                        <form action="includes/updateinfo.php" method="post" enctype="multipart/form-data">
+                            <div style="width: auto;">
+                                <input type="file" name="imagepath" id="file-input">
+                            </div>
 
-                        <div style="width: auto;">
-                            <input type="file" name="filepath" id="file-input">
-                        </div>
-
-                        <div class="username_holder">
-                            <p>Ändra ditt användarnamn</p>
-                            <input type="text" name="username" id="change-username-input" placeholder="<?php echo $me->uname; ?>">
-                        </div>
-                        <div class="save_buttons_holder">
-                            <button id="save-btn">Spara</button>
-                            <button id="cancel-btn">Rensa</button>
-                        </div>
+                            <div class="username_holder">
+                                <p>Change username</p>
+                                <input type="text" name="username" id="change-username-input" placeholder="<?php echo $me->uname; ?>">
+                            </div>
+                            <div class="save_buttons_holder">
+                                <input type="submit" id="save-btn" name="submit" class="save-cancel-button" value="Save">
+                                <input type="button" id="cancel-btn" class="save-cancel-button" value="Restart">
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="right_section">
                     <div class="buttons_holder">
-                        <button>Nytt mål</button>
-                        <button>Mina mål</button>
-                        <button>Uppnådda mål</button>
+                        <div class="buttons_holder_actual">
+                            <button>New goal</button>
+                            <button>My goals (0)</button>
+                            <button>Achieved goals (0)</button>
+                        </div>
                     </div>
                     <br>
                     <br>
-                    <div class="new_post_container">
-                        <h1 id="headertext">Känner du för uppdatering?</h1>
-                        <div class="content_manager_post">
-                            <input type="text" placeholder="Skriv här..." id="header-input">
+                    <div class="new_goal_container regular_container">
+                        <h1 id="headertext">Want to set a new goal?</h1>
+                        <div class="goal_set_container post_goal_container">
+                            <p id="chars-header-input">0/20</p>
+                            <input type="text" placeholder="Goal name..." id="header-input" class="input_goal">
                         </div>
-                        <div class="content_manager_post">
-                            <textarea name="content" id="content-textarea" placeholder="Skriv här..."></textarea>
+                        <div class="goal_set_container post_goal_container">
+                            <p id="chars-textarea">0/20</p>
+                            <textarea name="content" id="content-textarea" placeholder="Description..." class="input_goal"></textarea>
+
+                            <div class="options_container_goal">
+                                <input type="checkbox" name="repeat-goal-daily" class="new_goal_boxes">
+                                <label for="repeat-goal-daily" style="margin-right: 10px;">Every day</label>
+
+                                <input type="checkbox" name="repeat-goal-weekdays" class="new_goal_boxes">
+                                <label for="repeat-goal-weekdays" style="margin-right: 10px;">Week days</label>
+
+                                <input type="checkbox" name="repeat-goal-never" class="new_goal_boxes">
+                                <label for="repeat-goal-never" style="margin-right: 10px;">Long term</label>
+
+                                <button class="smaller-button" id="createGoalBtn" style="background-color: lightgreen; border: 1px solid green;">Begin</button>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <section class="footer">
+        <?php
+            include "add/footer.php";
+        ?>
     </section>
 
 

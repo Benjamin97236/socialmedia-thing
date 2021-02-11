@@ -15,8 +15,9 @@ class UserData {
                     //Assigning values from db to private variables
                     $username = $row["uname"];
                     $created_at = $row["created_at"];
+                    $user_image = $row["user_image"];
                     //Calling a function
-                    $this->setValues($username, $created_at);
+                    $this->setValues($username, $created_at, $user_image);
                     return true;
                 }
             } else {
@@ -26,10 +27,11 @@ class UserData {
     }
 
     //This function sets value to UserData class properties
-    public function setValues($uname, $created_date) {
+    public function setValues($uname, $created_date, $image) {
         //Creating class properties and setting value to them
         $this->uname = $uname;
         $this->created = $created_date;
+        $this->user_image = $image;
         return true;
     }
 
