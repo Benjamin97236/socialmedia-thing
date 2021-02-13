@@ -90,16 +90,15 @@
                     <br>
                     <div class="new_goal_container regular_container">
                         <h1 id="headertext">Want to set a new goal?</h1>
-                        <form action="includes/goal.php" method="post" id="goal-form">
                         <div class="goal_container_visibility">
                             <div class="goal_set_container post_goal_container">
                                 <p id="chars-header-input">0/20</p>
-                                <input type="text" placeholder="Title.." id="header-input" class="input_goal">
+                                <input type="text" placeholder="Title.." id="header-input" class="input_goal" autocomplete="off">
                             </div>
 
                             <div class="goal_set_container post_goal_container">
                                 <p id="chars-goal-input">0/5</p>
-                                <input type="text" placeholder="Tags e.g., #cars" id="goal-input-tags" class="input_goal">
+                                <input type="text" placeholder="Tags e.g., #cars" id="goal-input-tags" class="input_goal" autocomplete="off">
                                 <div class="actual_tag_holder">
                                     
                                 </div>
@@ -110,7 +109,7 @@
                                 <p id="chars-textarea">0/500</p>
                                 <textarea name="content" id="content-textarea" placeholder="Description..." class="input_goal"></textarea>
                             </div>
-                            <p>Remind me:</p>
+                            <p>Repeat:</p>
                             <div class="goal_set_container post_goal_container">
                                 <div class="options_container_goal">
                                     <input type="checkbox" name="repeat-goal-daily" class="new_goal_boxes" id="box1">
@@ -120,14 +119,15 @@
                                     <label for="repeat-goal-weekdays" style="margin-right: 10px;">Week days</label>
 
                                     <input type="checkbox" name="repeat-goal-never" class="new_goal_boxes" id="box3">
-                                    <label for="repeat-goal-never" style="margin-right: 10px;">Long term</label>
+                                    <label for="repeat-goal-never" style="margin-right: 10px;">Long term (once)</label>
+
+                                    <input type="hidden" name="repeat" value="">
 
                                     <button class="smaller-button" id="createGoalBtn" style="background-color: lightgreen; border: 1px solid green;">Get going!</button> 
                                 </div>
                             </div>
                             <p id="submit-goal-error"></p>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -142,5 +142,6 @@
 
 
     <script src="js/script.js"></script>
+    <script src="js/creategoal.js"></script>
 </body>
 </html>

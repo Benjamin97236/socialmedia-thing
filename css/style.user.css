@@ -265,6 +265,11 @@ div.regular_container {
     overflow: hidden;
 }
 
+.input_goal {
+    background: none;
+    background-color: none;
+}
+
 #submit-goal-error {
     margin-top: 5px;
     font-size: 18px;

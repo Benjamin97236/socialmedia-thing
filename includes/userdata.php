@@ -16,8 +16,12 @@ class UserData {
                     $username = $row["uname"];
                     $created_at = $row["created_at"];
                     $user_image = $row["user_image"];
-                    //Calling a function
-                    $this->setValues($username, $created_at, $user_image);
+
+                    //Setting class properties
+                    $this->uname = $username;
+                    $this->created = $created_at;
+                    $this->user_image = $user_image;
+
                     return true;
                 }
             } else {
@@ -26,13 +30,20 @@ class UserData {
         }
     }
 
-    //This function sets value to UserData class properties
-    public function setValues($uname, $created_date, $image) {
-        //Creating class properties and setting value to them
-        $this->uname = $uname;
-        $this->created = $created_date;
-        $this->user_image = $image;
-        return true;
+    //This function will give us an array
+    public function getGoals($id) {
+        require "database.php";
+        if(mysqli_real_escape_string($conn, $id)) {
+            //This query will get all information from a users goals
+            $sql = "SELECT * FROM goals WHERE from_user = '$id'";
+            $result = mysqli_query($conn, $sql);
+            $resultCheck = mysqli_num_rows($result);
+            if($resultCheck > 0) {
+                $this->goals = $result;
+            } else {
+                $this->goals = "";
+            }
+        }
     }
 
     //This function will return amount of posts from user
