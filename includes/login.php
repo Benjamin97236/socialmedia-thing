@@ -15,6 +15,8 @@
                     $db_password = $row["user_pwd"];
                     if($username == $db_username && $password == $db_password) {
                         $user_id = $row["user_index"];
+                        session_start();
+                        $_SESSION["loggedin"] = true;
                         header("Location: ../user.php?id=$user_id");
                     } else {
                         header("Location: ../index.php?error=wronginfo");

@@ -4,7 +4,7 @@
     font-family: 'Roboto', sans-serif;
 }
 
-button {
+button, input[type=submit] {
     background: none;
     border: none;
     outline: none;
@@ -202,12 +202,13 @@ div.post_goal_container {
     padding: 10px;
     background-color: rgb(238, 238, 238);
     width: 100%;
+    margin-bottom: 10px;
     margin-top: 10px;
     border-radius: 10px;
     position: relative;
 }
 
-#chars-textarea, #chars-header-input {
+#chars-textarea, #chars-header-input, #chars-goal-input {
     position: absolute;
     top: 8px;
     right: 8px;
@@ -218,7 +219,7 @@ div.regular_container {
     height: auto;
 }
 
-#header-input {
+#header-input, #goal-input-tags {
     background: none;
     border: none;
     font-size: 18px;
@@ -238,6 +239,22 @@ div.regular_container {
     margin-top: 10px;
 }
 
+.actual_tag_holder {
+    width: 100%;
+    overflow: hidden;
+}
+
+.actual_tag {
+    background-color: rgb(255, 255, 255);
+    padding: 8px;
+    border-radius: 6px;
+    color: grey;
+    float: left;
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 .profile_img_holder {
     width: 230px;
     height: 230px;
@@ -246,6 +263,20 @@ div.regular_container {
     z-index: 5;
     margin-bottom: 20px;
     overflow: hidden;
+}
+
+#submit-goal-error {
+    margin-top: 5px;
+    font-size: 18px;
+    font-family: 'Ubuntu', sans-serif;
+    color: red;
+}
+
+#tags-goal-error-msg {
+    margin-top: 5px;
+    font-size: 18px;
+    font-family: 'Ubuntu', sans-serif;
+    color: red;
 }
 
 /* footer styling */

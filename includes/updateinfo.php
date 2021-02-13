@@ -45,8 +45,14 @@ if(isset($_POST["submit"])) {
     $fileActualName = $me->user_image;
 
     if($_FILES["imagepath"]["size"] !== 0 && $_FILES["imagepath"]["error"] == 0) {
+        $old_file = fopen('../profile-pictures/'.$me->user_image, 'w+');
+        if($old_file) {
+            if(unlink(strval($old_file))) {
+
+            }
+        }
         if($fileActualName = processFile($_FILES["imagepath"])) {
-            
+
         }
     } 
 

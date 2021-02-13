@@ -1,6 +1,11 @@
 <?php
     include "includes/database.php";
     session_start();
+    //Checking if user is logged in
+    if(!$_SESSION["loggedin"]) {
+        //If not, then get redirected back to index.php
+        header("Location: index.php?error=noaccount");
+    }
     $_SESSION["user_index"] = $_GET["id"];
     $user_id = $_GET["id"];
 
@@ -37,14 +42,6 @@
     <title><?php echo $_SESSION["username"]; ?></title>
 </head>
 <body>
-
-<?php
-    if(!isset($_SESSION["user_index"])) {
-        header("Location: index.php?error=noaccount");
-    }
-
-?>
-
     <section class="navbar">
         <?php include "add/navbar.user.php"; ?>
     </section>
@@ -93,28 +90,44 @@
                     <br>
                     <div class="new_goal_container regular_container">
                         <h1 id="headertext">Want to set a new goal?</h1>
-                        <div class="goal_set_container post_goal_container">
-                            <p id="chars-header-input">0/20</p>
-                            <input type="text" placeholder="Goal name..." id="header-input" class="input_goal">
-                        </div>
-                        <div class="goal_set_container post_goal_container">
-                            <p id="chars-textarea">0/20</p>
-                            <textarea name="content" id="content-textarea" placeholder="Description..." class="input_goal"></textarea>
-
-                            <div class="options_container_goal">
-                                <input type="checkbox" name="repeat-goal-daily" class="new_goal_boxes">
-                                <label for="repeat-goal-daily" style="margin-right: 10px;">Every day</label>
-
-                                <input type="checkbox" name="repeat-goal-weekdays" class="new_goal_boxes">
-                                <label for="repeat-goal-weekdays" style="margin-right: 10px;">Week days</label>
-
-                                <input type="checkbox" name="repeat-goal-never" class="new_goal_boxes">
-                                <label for="repeat-goal-never" style="margin-right: 10px;">Long term</label>
-
-                                <button class="smaller-button" id="createGoalBtn" style="background-color: lightgreen; border: 1px solid green;">Begin</button>
-                                
+                        <form action="includes/goal.php" method="post" id="goal-form">
+                        <div class="goal_container_visibility">
+                            <div class="goal_set_container post_goal_container">
+                                <p id="chars-header-input">0/20</p>
+                                <input type="text" placeholder="Title.." id="header-input" class="input_goal">
                             </div>
+
+                            <div class="goal_set_container post_goal_container">
+                                <p id="chars-goal-input">0/5</p>
+                                <input type="text" placeholder="Tags e.g., #cars" id="goal-input-tags" class="input_goal">
+                                <div class="actual_tag_holder">
+                                    
+                                </div>
+                            </div>
+                            <p id="tags-goal-error-msg"></p>
+
+                            <div class="goal_set_container post_goal_container">
+                                <p id="chars-textarea">0/500</p>
+                                <textarea name="content" id="content-textarea" placeholder="Description..." class="input_goal"></textarea>
+                            </div>
+                            <p>Remind me:</p>
+                            <div class="goal_set_container post_goal_container">
+                                <div class="options_container_goal">
+                                    <input type="checkbox" name="repeat-goal-daily" class="new_goal_boxes" id="box1">
+                                    <label for="repeat-goal-daily" style="margin-right: 10px;">Every day</label>
+
+                                    <input type="checkbox" name="repeat-goal-weekdays" class="new_goal_boxes" id="box2">
+                                    <label for="repeat-goal-weekdays" style="margin-right: 10px;">Week days</label>
+
+                                    <input type="checkbox" name="repeat-goal-never" class="new_goal_boxes" id="box3">
+                                    <label for="repeat-goal-never" style="margin-right: 10px;">Long term</label>
+
+                                    <button class="smaller-button" id="createGoalBtn" style="background-color: lightgreen; border: 1px solid green;">Get going!</button> 
+                                </div>
+                            </div>
+                            <p id="submit-goal-error"></p>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
